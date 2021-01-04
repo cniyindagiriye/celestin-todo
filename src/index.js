@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
     },
     request: {
       type: 'GET',
-      url: 'localhost://api/docs',
+      url: 'https://celestin-todo.herokuapp.com/api/docs',
     },
   });
 });
@@ -27,9 +27,10 @@ app.use((req, res) => {
   res.status(404).send('Not found');
 });
 
-app.listen(process.env.PORT || 3000, () => {
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
   // eslint-disable-next-line no-console
-  console.log('Server is running...');
+  console.log(`Server is running on PORT ${PORT}...`);
 });
 
 export default app;
