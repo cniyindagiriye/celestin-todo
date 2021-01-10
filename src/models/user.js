@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 import db from './index';
 
-const User = db.sequelize.define('user', {
+const User = db.sequelize.define('Users', {
   id: {
     allowNull: false,
     autoIncrement: true,

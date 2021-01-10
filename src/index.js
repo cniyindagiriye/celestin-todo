@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import swaggerUI from 'swagger-ui-express';
 import swaggerDocs from '../public/api-docs/swagger';
+import userRoutes from './routes/userRoute';
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.get('/', (req, res) => {
     },
   });
 });
+app.use('/users', userRoutes);
 
 app.use((req, res) => {
   res.status(404).send('Not found');
