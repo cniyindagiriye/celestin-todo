@@ -1,0 +1,57 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "ToDo app",
+    "description": "Testing endpoints"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schema": ["http", "https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/api/users/signup": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Signup",
+        "description": "Create an account",
+        "operationId": "createUser",
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "scheme": {
+            "$ref": "#/definitions/user"
+          }
+        }],
+        "produces": ["application/json"],
+        "responses": {
+          "201": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "user": {
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

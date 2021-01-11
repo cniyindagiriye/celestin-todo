@@ -2,13 +2,13 @@
   "name": "celestin-todo",
   "version": "1.0.0",
   "description": "Todo App",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node --require @babel/register src/index",
-    "dev": "nodemon --require @babel/register src/index",
-    "test": "mocha  --require @babel/register src/tests/**/*.test.js --exit",
+    "start": "babel-node src/index",
+    "dev": "sequelize db:migrate && nodemon --exec babel-node src/index",
+    "test": "mocha  --require @babel/register ./tests/**/*.test.js --exit",
     "test:coverage": "nyc npm test --exit",
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint ./"
   },
   "repository": {
     "type": "git",
@@ -36,15 +36,15 @@
     "@babel/cli": "^7.12.10",
     "@babel/node": "^7.12.10",
     "@babel/plugin-transform-runtime": "^7.12.10",
-    "bcrypt": "^5.0.0",
-    "body-parser": "^1.19.0",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "joi": "^17.3.0",
+    "jsonwebtoken": "^8.5.1",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0",
-    "swagger-jsdoc": "^6.0.0",
     "swagger-ui-express": "^4.1.6"
   }
 }
