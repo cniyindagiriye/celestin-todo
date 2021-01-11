@@ -3,17 +3,33 @@ on: [push]
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
       - run: npm install -g bats
       - run: bats -v
-
+      - name: Install sequelize-cli
+      - run: npm install sequelize-cli -g
       - name: Install
         run: npm install
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_PORT: 5432
       - name: Lint
         run: npm run lint
       - name: Test
-        run: npm test  
+        run: npm test
       - name: Test Coverage
-        run: npm run test:coverage
+        run: npm run test:Coverage
