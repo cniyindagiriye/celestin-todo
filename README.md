@@ -1,4 +1,4 @@
-![example workflow name](https://github.com/cniyindagiriye/celestin-todo/workflows/Node%20CI/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/cniyindagiriye/celestin-todo/badge.svg?branch=develop)](https://coveralls.io/github/cniyindagiriye/celestin-todo?branch=develop)
 
 # celestin-todo
 
